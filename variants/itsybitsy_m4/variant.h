@@ -168,13 +168,7 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define I2S_INTERFACES_COUNT 0
 
 #define I2S_DEVICE          0
-#define I2S_CLOCK_GENERATOR 3
-
-#define PIN_I2S_SDO          (8u)
-#define PIN_I2S_SDI          (1u)
-#define PIN_I2S_SCK         (3u)
-#define PIN_I2S_FS          (9u)
-#define PIN_I2S_MCK			(2u)
+// no I2S on G19!
 
 //QSPI Pins
 #define PIN_QSPI_SCK	(32u)
@@ -182,7 +176,7 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define PIN_QSPI_IO0	(34u)
 #define PIN_QSPI_IO1	(35u)
 #define PIN_QSPI_IO2	(36u)
-#define PIN_QSPI_IO3	(27u)
+#define PIN_QSPI_IO3	(37u)
 
 //PCC Pins
 #define PIN_PCC_DEN1    (PIN_SPI_MOSI)
