@@ -128,11 +128,11 @@ static const uint8_t ATN = PIN_ATN;
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1
+#define SPI_INTERFACES_COUNT     1
 
 #define PIN_SPI_MISO         (23u)
-#define PIN_SPI_MOSI         (25u)
 #define PIN_SPI_SCK          (24u)
+#define PIN_SPI_MOSI         (25u)
 #define PERIPH_SPI           sercom1
 #define PAD_SPI_TX           SPI_PAD_0_SCK_1
 #define PAD_SPI_RX           SERCOM_RX_PAD_3
