@@ -55,17 +55,20 @@ void SystemInit( void )
 #if defined(__SAMD51__)
   NVMCTRL->CTRLA.reg |= NVMCTRL_CTRLA_RWS(0);
   
-  #ifndef CRYSTALLESS
+  #if defined(CRYSTALLESS)
+   
 
-  /* ----------------------------------------------------------------------------------------------
-   * 1) Enable XOSC32K clock (External on-board 32.768Hz oscillator)
-   */
+	#else // has crystal
 
-    OSC32KCTRL->XOSC32K.reg = OSC32KCTRL_XOSC32K_ENABLE | OSC32KCTRL_XOSC32K_EN32K | OSC32KCTRL_XOSC32K_EN32K | OSC32KCTRL_XOSC32K_CGM_XT | OSC32KCTRL_XOSC32K_XTALEN;
+		  /* ----------------------------------------------------------------------------------------------
+		   * 1) Enable XOSC32K clock (External on-board 32.768Hz oscillator)
+		   */
 
-    while( (OSC32KCTRL->STATUS.reg & OSC32KCTRL_STATUS_XOSC32KRDY) == 0 ){
-        /* Wait for oscillator to be ready */
-    }
+			OSC32KCTRL->XOSC32K.reg = OSC32KCTRL_XOSC32K_ENABLE | OSC32KCTRL_XOSC32K_EN32K | OSC32KCTRL_XOSC32K_EN32K | OSC32KCTRL_XOSC32K_CGM_XT | OSC32KCTRL_XOSC32K_XTALEN;
+	
+			while( (OSC32KCTRL->STATUS.reg & OSC32KCTRL_STATUS_XOSC32KRDY) == 0 ){
+				/* Wait for oscillator to be ready */
+			}
 
 	#endif //CRYSTALLESS
 	
@@ -76,25 +79,18 @@ void SystemInit( void )
 	  /* wait for reset to complete */
   }
   
-#ifndef CRYSTALLESS
-  /* ----------------------------------------------------------------------------------------------
-    * 2) Put XOSC32K as source of Generic Clock Generator 3
-    */
+	/* ----------------------------------------------------------------------------------------------
+	* 2) Put XOSC32K as source of Generic Clock Generator 3
+	*/
 	GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_XOSC32K].reg = GCLK_GENCTRL_SRC(GCLK_GENCTRL_SRC_XOSC32K) | //generic clock gen 3
 									GCLK_GENCTRL_GENEN;
-#else
-    /* ----------------------------------------------------------------------------------------------
-    * 2) Put OSCULP32K as source of Generic Clock Generator 3
-    */
-	GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_XOSC32K].reg = GCLK_GENCTRL_SRC(GCLK_GENCTRL_SRC_OSCULP32K) | GCLK_GENCTRL_GENEN; //generic clock gen 3
-#endif
 
 	while ( GCLK->SYNCBUSY.reg & GCLK_SYNCBUSY_GENCTRL3 ){
 		/* Wait for synchronization */
 	}
   
 	/* ----------------------------------------------------------------------------------------------
-	* 3) Put OSCULP32K as source for Generic Clock Gen 0 (DFLL48M reference)
+	* 3) Put Generic Clock Generator 3 as source for Generic Clock Gen 0 (DFLL48M reference)
 	*/
 	GCLK->GENCTRL[0].reg = GCLK_GENCTRL_SRC(GCLK_GENCTRL_SRC_OSCULP32K) | GCLK_GENCTRL_GENEN;
 	
