@@ -81,6 +81,36 @@ extern "C"
 #define PIN_LED              PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
 
+
+/* CRICKIT pins */
+
+#define CRICKIT_DRIVE_1      (2ul)
+#define CRICKIT_DRIVE_2      (CRICKIT_DRIVE_1 + 1)c
+#define CRICKIT_DRIVE_3      (CRICKIT_DRIVE_2 + 1)
+#define CRICKIT_DRIVE_4      (CRICKIT_DRIVE_3 + 1)
+
+#define CRICKIT_SERVO_1      (6ul)
+#define CRICKIT_SERVO_2      (CRICKIT_SERVO_1 + 1)
+#define CRICKIT_SERVO_3      (CRICKIT_SERVO_2 + 1)
+#define CRICKIT_SERVO_4      (CRICKIT_SERVO_3 + 1)
+
+#define CRICKIT_INTERNAL_NEOPIXEL (10ul)
+#define CRICKIT_EXTERNAL_NEOPIXEL (11ul)
+
+#define CRICKIT_IRQ          (12ul)
+
+#define CRICKIT_TOUCH_1      (PIN_A9)
+#define CRICKIT_TOUCH_2      (CRICKIT_TOUCH_1 + 1)
+#define CRICKIT_TOUCH_3      (CRICKIT_TOUCH_2 + 1)
+#define CRICKIT_TOUCH_4      (CRICKIT_TOUCH_3 + 1)
+
+#define CRICKIT_VIN_SENSE    (PIN_A13)
+
+#define CRICKIT_MOTOR_1A     (28ul)
+#define CRICKIT_MOTOR_1B     (29ul)
+#define CRICKIT_MOTOR_2A     (30ul)
+#define CRICKIT_MOTOR_2B     (31ul)
+
 /*
  * Analog pins
  */
@@ -96,6 +126,8 @@ extern "C"
 #define PIN_A9               (PIN_A0 + 9)
 #define PIN_A10              (PIN_A0 + 10)
 #define PIN_A11              (PIN_A0 + 11)
+#define PIN_A12              (PIN_A0 + 12)
+#define PIN_A13              (PIN_A0 + 13)
 #define PIN_DAC0             (14ul)
 
 static const uint8_t A0  = PIN_A0;
@@ -110,6 +142,8 @@ static const uint8_t A8  = PIN_A8 ;
 static const uint8_t A9  = PIN_A9 ;
 static const uint8_t A10 = PIN_A10 ;
 static const uint8_t A11 = PIN_A11 ;
+static const uint8_t A12 = PIN_A12 ;
+static const uint8_t A13 = PIN_A13 ;
 static const uint8_t DAC0 = PIN_DAC0;
 
 #define ADC_RESOLUTION		12
@@ -123,50 +157,25 @@ static const uint8_t ATN = PIN_ATN;
  */
 
 // Serial1
-#define PIN_SERIAL1_RX       (0ul)
-#define PIN_SERIAL1_TX       (1ul)
-#define PAD_SERIAL1_TX       (UART_TX_PAD_2)
+#define PIN_SERIAL1_TX       (35ul)
+#define PIN_SERIAL1_RX       (36ul)
+#define PAD_SERIAL1_TX       (UART_TX_PAD_0)
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_3)
 
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 2
-
-#define PIN_SPI_MISO         (28u)
-#define PIN_SPI_MOSI         (29u)
-#define PIN_SPI_SCK          (30u)
-#define PERIPH_SPI           sercom4
-#define PAD_SPI_TX           SPI_PAD_2_SCK_3
-#define PAD_SPI_RX           SERCOM_RX_PAD_0
-
-static const uint8_t SS	  = PIN_A2 ;	// SERCOM4 last PAD is present on A2 but HW SS isn't used. Set here only for reference.
-static const uint8_t MOSI = PIN_SPI_MOSI ;
-static const uint8_t MISO = PIN_SPI_MISO ;
-static const uint8_t SCK  = PIN_SPI_SCK ;
-
-
-#define PIN_SPI1_MISO         (36u)
-#define PIN_SPI1_MOSI         (37u)
-#define PIN_SPI1_SCK          (38u)
-#define PERIPH_SPI1           sercom5
-#define PAD_SPI1_TX           SPI_PAD_2_SCK_3
-#define PAD_SPI1_RX           SERCOM_RX_PAD_1
-
-static const uint8_t SS1   = 39 ;	// HW SS isn't used. Set here only for reference.
-static const uint8_t MOSI1 = PIN_SPI_MOSI ;
-static const uint8_t MISO1 = PIN_SPI_MISO ;
-static const uint8_t SCK1  = PIN_SPI_SCK ;
+#define SPI_INTERFACES_COUNT 0
 
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (26u)
-#define PIN_WIRE_SCL         (27u)
-#define PERIPH_WIRE          sercom3
-#define WIRE_IT_HANDLER      SERCOM3_Handler
+#define PIN_WIRE_SDA         (0u)
+#define PIN_WIRE_SCL         (1u)
+#define PERIPH_WIRE          sercom1
+#define WIRE_IT_HANDLER      SERCOM1_Handler
 
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
@@ -174,19 +183,13 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 /*
  * USB
  */
-#define PIN_USB_HOST_ENABLE (33ul)
-#define PIN_USB_DM          (34ul)
-#define PIN_USB_DP          (35ul)
+#define PIN_USB_HOST_ENABLE (32ul)
+#define PIN_USB_DM          (33ul)
+#define PIN_USB_DP          (34ul)
 /*
  * I2S Interfaces
  */
-#define I2S_INTERFACES_COUNT 1
-
-#define I2S_DEVICE          0
-#define I2S_CLOCK_GENERATOR 3
-#define PIN_I2S_SD          (9u)
-#define PIN_I2S_SCK         (1u)
-#define PIN_I2S_FS          (0u)
+#define I2S_INTERFACES_COUNT 0
 
 #ifdef __cplusplus
 }

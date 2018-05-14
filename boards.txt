@@ -271,7 +271,7 @@ adafruit_pirkey.build.pid=0x801E
 adafruit_pirkey.bootloader.tool=openocd
 adafruit_pirkey.bootloader.file=pirkey/bootloader_uf2.bin
 
-adafruit_crickit_m0.name=Adafruit ItsyBitsy M0
+adafruit_crickit_m0.name=Adafruit Crickit M0
 adafruit_crickit_m0.vid.0=0x239A
 adafruit_crickit_m0.pid.0=0x802D
 adafruit_crickit_m0.vid.1=0x239A
@@ -287,7 +287,7 @@ adafruit_crickit_m0.upload.wait_for_upload_port=true
 adafruit_crickit_m0.upload.native_usb=true
 adafruit_crickit_m0.build.mcu=cortex-m0plus
 adafruit_crickit_m0.build.f_cpu=48000000L
-adafruit_crickit_m0.build.usb_product="ItsyBitsy M0 Express"
+adafruit_crickit_m0.build.usb_product="Crickit M0"
 adafruit_crickit_m0.build.usb_manufacturer="Adafruit"
 adafruit_crickit_m0.build.board=CRICKIT_M0
 adafruit_crickit_m0.build.core=arduino
@@ -297,7 +297,7 @@ adafruit_crickit_m0.build.openocdscript=openocd_scripts/arduino_zero.cfg
 adafruit_crickit_m0.build.variant=crickit_m0
 adafruit_crickit_m0.build.variant_system_lib=
 adafruit_crickit_m0.build.vid=0x239A
-adafruit_crickit_m0.build.pid=0x800F
+adafruit_crickit_m0.build.pid=0x802D
 adafruit_crickit_m0.bootloader.tool=openocd
 adafruit_crickit_m0.bootloader.file=crickit/samd21_sam_ba.bin
 
