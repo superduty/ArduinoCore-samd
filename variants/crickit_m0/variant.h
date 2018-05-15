@@ -85,7 +85,7 @@ extern "C"
 /* CRICKIT pins */
 
 #define CRICKIT_DRIVE_1      (2ul)
-#define CRICKIT_DRIVE_2      (CRICKIT_DRIVE_1 + 1)c
+#define CRICKIT_DRIVE_2      (CRICKIT_DRIVE_1 + 1)
 #define CRICKIT_DRIVE_3      (CRICKIT_DRIVE_2 + 1)
 #define CRICKIT_DRIVE_4      (CRICKIT_DRIVE_3 + 1)
 
